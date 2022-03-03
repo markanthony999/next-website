@@ -8,9 +8,7 @@ const Header = (props) => {
 			<h1 className="title">
 				<span>EmpireComputing.NET</span>
 			</h1>
-			<p className={headerStyles.description}>
-				Keep up to date with the latest in tech
-			</p>
+			<p className={headerStyles.description}>...be who you are.</p>
 			<style jsx>
 				{`
 					.title {

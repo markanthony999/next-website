@@ -1,14 +1,27 @@
 import Head from 'next/head'
-
-const About = () => {
+import { ArticleList } from '../components/ArticleList'
+export default function About({ articles }) {
 	return (
 		<div>
-			<h1>Who We Are</h1>
-			<h1>Site Architecture and Design</h1>
-			<h2>Platform</h2>
-			<h2>Web Stack</h2>
+			{/* <Head>
+				<title>Mark's Sandbox</title>
+				<meta name="keywords" content="web dev, programming" />
+			</Head> */}
+			<div className="container">
+				<h1>Articles</h1>
+				<h3>We are...</h3>
+				<ArticleList articles={articles} />
+			</div>
 		</div>
 	)
 }
+export const getStaticProps = async () => {
+	const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`)
+	const articles = await res.json()
 
-export default About
+	return {
+		props: {
+			articles,
+		},
+	}
+}
